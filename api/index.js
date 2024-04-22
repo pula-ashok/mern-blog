@@ -3,11 +3,13 @@ import dotenv from "dotenv";
 import createDbConnection from "./db/createDbConnection.js";
 import userRouter from "../api/routes/user.routes.js";
 import authRouter from "../api/routes/auth.routes.js";
+import cors from "cors";
 
 const app = express();
 
 dotenv.config();
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
